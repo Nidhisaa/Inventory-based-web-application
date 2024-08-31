@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Returns - Distributor Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light sky blue background */
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); /* Subtle gradient */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50; /* Dark blue-grey color */
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            color: #34495e; /* Slightly darker blue-grey */
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .return {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid;
+        }
+        .return p {
+            margin: 5px 0;
+            color: #2c3e50;
+        }
+        .timestamp {
+            margin-left: 20px;
+            font-size: 14px;
+            color: #7f8c8d; /* Grey color */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Distributor Dashboard - Drug Returns</h1>
+
+    <!-- Warehouse 1 -->
+    <div class="section">
+        <h2 style="color: #1e90ff;">Warehouse 1</h2>
+        <div class="return" style="border-left-color: #1e90ff;">
+            <p><strong>Warehouse Name:</strong> Central Warehouse</p>
+            <p><strong>Return ID:</strong> R1-RET001</p>
+            <p><strong>Drug Name:</strong> Drug A</p>
+            <p><strong>Return Date:</strong> 28th August 2024</p>
+            <p><strong>Reason:</strong> Expired</p>
+        </div>
+    </div>
+
+    <!-- Warehouse 2 -->
+    <div class="section">
+        <h2 style="color: #ff9800;">Warehouse 2</h2>
+        <div class="return" style="border-left-color: #ff9800;">
+            <p><strong>Warehouse Name:</strong> North Warehouse</p>
+            <p><strong>Return ID:</strong> R2-RET002</p>
+            <p><strong>Drug Name:</strong> Drug X</p>
+            <p><strong>Return Date:</strong> 29th August 2024</p>
+            <p><strong>Reason:</strong> Damaged</p>
+        </div>
+    </div>
+
+    <!-- Warehouse 3 -->
+    <div class="section">
+        <h2 style="color: #4caf50;">Warehouse 3</h2>
+        <div class="return" style="border-left-color: #4caf50;">
+            <p><strong>Warehouse Name:</strong> South Warehouse</p>
+            <p><strong>Return ID:</strong> R3-RET003</p>
+            <p><strong>Drug Name:</strong> Drug M</p>
+            <p><strong>Return Date:</strong> 30th August 2024</p>
+            <p><strong>Reason:</strong> Incorrect Quantity</p>
+        </div>
+    </div>
+
+    <!-- Warehouse 4 -->
+    <div class="section">
+        <h2 style="color: #e91e63;">Warehouse 4</h2>
+        <div class="return" style="border-left-color: #e91e63;">
+            <p><strong>Warehouse Name:</strong> East Warehouse</p>
+            <p><strong>Return ID:</strong> R4-RET004</p>
+            <p><strong>Drug Name:</strong> Drug P</p>
+            <p><strong>Return Date:</strong> 31st August 2024</p>
+            <p><strong>Reason:</strong> Expired</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Function to handle any future dynamic updates
+    function updateReturnStatus(returnId, status) {
+        console.log(`Return ID: ${returnId}, Status: ${status}`);
+        
+        // Simulate sending status and timestamp to the server
+        // fetch(`/updateReturnStatus`, {
+        //     method: 'POST',
+        //     body: JSON.stringify({ returnId: returnId, status: status }),
+        //     headers: { 'Content-Type': 'application/json' }
+        // }).then(response => {
+        //     return response.json();
+        // }).then(data => {
+        //     console.log(data);
+        // });
+    }
+</script>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</html>

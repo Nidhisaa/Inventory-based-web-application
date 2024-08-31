@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            padding: 0px;
+            text-align: center;
+            background-image: url('https://img.freepik.com/premium-photo/set-diverse-medical-items-means-prevention-personal-hygiene-treatment-symptoms-coronavirus_164638-7153.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .btn-delivery {
+            background-color: #2f72cf; /* Green */
+            color: white;
+        }
+        .btn-delivery:hover {
+            background-color: #103184; /* Darker green */
+        }
+        .btn-return {
+            background-color: #2f72cf; /* Red */
+            color: white;
+        }
+        .btn-return:hover {
+            background-color: #103184; /* Darker red */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Order Options</h1>
+    <button class="btn btn-delivery" onclick="window.location.href='delivery.html'">Delivery</button>
+    <button class="btn btn-return" onclick="window.location.href='return.html'">Return</button>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+</html>

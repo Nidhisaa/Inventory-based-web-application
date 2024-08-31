@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumption Pattern</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inria Serif', serif;
+            background: #f5f5f5;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        button, select {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #007bff;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+        button:hover, select:hover {
+            background-color: #0056b3;
+        }
+        select {
+            width: 200px;
+            text-align: center;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Drug Consumption Pattern</h1>
+        <div class="controls">
+            <select id="hospitalSelector" onchange="updateChart()">
+                <option value="hospitalABC">Hospital ABC</option>
+                <option value="hospitalXYZ">Hospital XYZ</option>
+            </select>
+            <button onclick="window.location.href='main.html';">Back to Home</button>
+        </div>
+        <div class="chart-container">
+            <canvas id="consumptionChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('consumptionChart').getContext('2d');
+
+        // Data for each hospital
+        const data = {
+            hospitalABC: {
+                labels: ['Drug A', 'Drug B', 'Drug C'],
+                datasets: [{
+                    label: 'Quantity Consumed',
+                    data: [120, 150, 80], // Sample data
+                    backgroundColor: ['#ff9999', '#66b3ff', '#99ff99'],
+                    borderColor: ['#cc0000', '#0033cc', '#009900'],
+                    borderWidth: 1
+                }]
+            },
+            hospitalXYZ: {
+                labels: ['Drug X', 'Drug Y', 'Drug Z'],
+                datasets: [{
+                    label: 'Quantity Consumed',
+                    data: [200, 90, 110], // Sample data
+                    backgroundColor: ['#ffcc99', '#c2c2f0', '#ffb3e6'],
+                    borderColor: ['#cc6600', '#6666ff', '#cc66ff'],
+                    borderWidth: 1
+                }]
+            }
+        };
+
+        let consumptionChart = new Chart(ctx, {
+            type: 'bar',
+            data: data.hospitalABC,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function updateChart() {
+            const selectedHospital = document.getElementById('hospitalSelector').value;
+            consumptionChart.data = data[selectedHospital];
+            consumptionChart.update();
+        }
+    </script>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</html>

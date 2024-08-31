@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Report - Distributor Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light sky blue background */
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); /* Subtle gradient */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50; /* Dark blue-grey color */
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            color: #34495e; /* Slightly darker blue-grey */
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .order {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid;
+        }
+        .order p {
+            margin: 5px 0;
+            color: #2c3e50;
+        }
+        .timestamp {
+            margin-left: 20px;
+            font-size: 14px;
+            color: #7f8c8d; /* Grey color */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Distributor Dashboard - Order Report</h1>
+
+    <!-- Warehouse 1 -->
+    <div class="section">
+        <h2 style="color: #1e90ff;">Warehouse 1</h2>
+        <div class="order" style="border-left-color: #1e90ff;">
+            <p><strong>Warehouse Name:</strong> Central Warehouse</p>
+            <p><strong>Order ID:</strong> O1-ORD001</p>
+            <p><strong>Customer:</strong> Hospital ABC</p>
+            <p><strong>Delivery Address:</strong> 123 Hospital St, Cityname</p>
+            <p><strong>Drugs:</strong> Drug A (100 units), Drug B (200 units)</p>
+            <p><strong>Order Date:</strong> 24th August 2024</p>
+        </div>
+    </div>
+
+    <!-- Warehouse 2 -->
+    <div class="section">
+        <h2 style="color: #ff9800;">Warehouse 2</h2>
+        <div class="order" style="border-left-color: #ff9800;">
+            <p><strong>Warehouse Name:</strong> North Warehouse</p>
+            <p><strong>Order ID:</strong> O2-ORD002</p>
+            <p><strong>Customer:</strong> Hospital XYZ</p>
+            <p><strong>Delivery Address:</strong> 456 Medical Rd, Cityname</p>
+            <p><strong>Drugs:</strong> Drug X (150 units), Drug Y (50 units)</p>
+            <p><strong>Order Date:</strong> 25th August 2024</p>
+        </div>
+    </div>
+
+    <!-- Warehouse 3 -->
+    <div class="section">
+        <h2 style="color: #4caf50;">Warehouse 3</h2>
+        <div class="order" style="border-left-color: #4caf50;">
+            <p><strong>Warehouse Name:</strong> South Warehouse</p>
+            <p><strong>Order ID:</strong> O3-ORD003</p>
+            <p><strong>Customer:</strong> Hospital DEF</p>
+            <p><strong>Delivery Address:</strong> 789 Health Ave, Cityname</p>
+            <p><strong>Drugs:</strong> Drug M (80 units), Drug N (120 units)</p>
+            <p><strong>Order Date:</strong> 26th August 2024</p>
+        </div>
+    </div>
+
+    <!-- Warehouse 4 -->
+    <div class="section">
+        <h2 style="color: #e91e63;">Warehouse 4</h2>
+        <div class="order" style="border-left-color: #e91e63;">
+            <p><strong>Warehouse Name:</strong> East Warehouse</p>
+            <p><strong>Order ID:</strong> O4-ORD004</p>
+            <p><strong>Customer:</strong> Hospital GHI</p>
+            <p><strong>Delivery Address:</strong> 321 Wellness Blvd, Cityname</p>
+            <p><strong>Drugs:</strong> Drug P (60 units), Drug Q (90 units)</p>
+            <p><strong>Order Date:</strong> 27th August 2024</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</html>

@@ -1,0 +1,46 @@
+.android-small-1 .rectangle-1 {
+  background: #44646B;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 207px;
+  height: 640px;
+}
+.android-small-1 .delivery {
+  position: relative;
+  margin-bottom: 40px;
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inria Serif';
+  font-weight: 400;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+.android-small-1 .stock {
+  position: relative;
+  margin-bottom: 39px;
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inria Serif';
+  font-weight: 400;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+.android-small-1 .orders {
+  position: relative;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inria Serif';
+  font-weight: 400;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+.android-small-1 {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  padding: 152px 0 322px 24px;
+  box-sizing: border-box;
+}

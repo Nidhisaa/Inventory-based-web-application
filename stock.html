@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godown Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('your-background-image.jpg'); /* Replace with your image file */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50; /* Dark blue-grey color */
+            margin-bottom: 30px;
+        }
+        .godown {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd; /* Light blue */
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .godown h2 {
+            color: #34495e;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .inventory-table th, .inventory-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .inventory-table th {
+            background-color: #2c3e50; /* Dark blue-grey */
+            color: white;
+        }
+        .inventory-table td {
+            background-color: #f9f9f9;
+        }
+        .low-stock {
+            color: #e74c3c; /* Red */
+            font-weight: bold;
+        }
+        .in-stock {
+            color: #2ecc71; /* Green */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Godown Management System</h1>
+
+    <!-- Godown Details -->
+    <div class="godown">
+        <h2>Central Godown</h2>
+        <table class="inventory-table">
+            <tr>
+                <th>Drug Name</th>
+                <th>Stock Quantity</th>
+                <th>Expiry Date</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Drug A</td>
+                <td>150</td>
+                <td>30th September 2024</td>
+                <td><span class="low-stock">Low Stock</span></td>
+            </tr>
+            <tr>
+                <td>Drug B</td>
+                <td>500</td>
+                <td>15th November 2024</td>
+                <td><span class="in-stock">In Stock</span></td>
+            </tr>
+            <tr>
+                <td>Drug C</td>
+                <td>75</td>
+                <td>1st October 2024</td>
+                <td><span class="low-stock">Low Stock</span></td>
+            </tr>
+            <tr>
+                <td>Drug D</td>
+                <td>300</td>
+                <td>12th December 2024</td>
+                <td><span class="in-stock">In Stock</span></td>
+            </tr>
+            <tr>
+                <td>Drug E</td>
+                <td>200</td>
+                <td>25th January 2025</td>
+                <td><span class="in-stock">In Stock</span></td>
+            </tr>
+            <tr>
+                <td>Drug F</td>
+                <td>50</td>
+                <td>18th February 2025</td>
+                <td><span class="low-stock">Low Stock</span></td>
+            </tr>
+            <tr>
+                <td>Drug G</td>
+                <td>400</td>
+                <td>20th March 2025</td>
+                <td><span class="in-stock">In Stock</span></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</html>

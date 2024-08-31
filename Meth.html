@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Report</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        th {
+            background-color: #004085;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+            box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Supply Chain Report</h1>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Manufacturer</th>
+                    <th>Drug</th>
+                    <th>Warehouse</th>
+                    <th>Quantity Supplied to Warehouse</th>
+                    <th>Vendor</th>
+                    <th>Quantity Supplied to Vendor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Manufacturer X</td>
+                    <td>Drug A</td>
+                    <td>Warehouse 1</td>
+                    <td>5000 units</td>
+                    <td>Vendor Y</td>
+                    <td>2000 units</td>
+                </tr>
+                <tr>
+                    <td>Drug B</td>
+                    <td>Warehouse 1</td>
+                    <td>3000 units</td>
+                    <td>Vendor Z</td>
+                    <td>1500 units</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Manufacturer Z</td>
+                    <td>Drug C</td>
+                    <td>Warehouse 2</td>
+                    <td>4000 units</td>
+                    <td>Vendor W</td>
+                    <td>1800 units</td>
+                </tr>
+                <tr>
+                    <td>Drug D</td>
+                    <td>Warehouse 3</td>
+                    <td>3500 units</td>
+                    <td>Vendor Z</td>
+                    <td>2000 units</td>
+                </tr>
+                <tr>
+                    <td>Manufacturer Y</td>
+                    <td>Drug E</td>
+                    <td>Warehouse 3</td>
+                    <td>3700 units</td>
+                    <td>Vendor W</td>
+                    <td>1800 units</td>
+                </tr>
+                <tr>
+                    <td>Manufacturer B</td>
+                    <td>Drug F</td>
+                    <td>Warehouse 1</td>
+                    <td>4200 units</td>
+                    <td>Vendor U</td>
+                    <td>2100 units</td>
+                </tr>
+                <tr>
+                    <td>Manufacturer Z</td>
+                    <td>Drug G</td>
+                    <td>Warehouse 2</td>
+                    <td>3000 units</td>
+                    <td>Vendor Z</td>
+                    <td>1000 units</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="btn-container">
+            <button onclick="generatePDF()">Download Report as PDF</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Supply Chain Report. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
+    <script>
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            doc.setFontSize(22);
+            doc.setTextColor(33, 37, 41);
+            doc.text("Supply Chain Report", 105, 20, { align: 'center' });
+
+            const rows = [];
+            document.querySelectorAll("table tbody tr").forEach(row => {
+                const cells = [];
+                row.querySelectorAll("td").forEach(cell => {
+                    cells.push(cell.innerText);
+                });
+                rows.push(cells);
+            });
+
+            doc.autoTable({
+                head: [['Manufacturer', 'Drug', 'Warehouse', 'Quantity Supplied to Warehouse', 'Vendor', 'Quantity Supplied to Vendor']],
+                body: rows,
+                startY: 30,
+                theme: 'striped',
+                headStyles: { fillColor: [0, 64, 133] },
+                styles: { fontSize: 12, cellPadding: 3, valign: 'middle' },
+                margin: { top: 30 },
+                showHead: 'firstPage'
+            });
+
+            doc.save("supply_chain_report.pdf");
+        }
+    </script>
+</body>
+</html>
