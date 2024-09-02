@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Dashboard</title>
+    <link rel="stylesheet" href="styletoentry.css">
+</head>
+<body>
+    <h1>Management Dashboard</h1>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section-block">
+        <h2>Select a Section</h2>
+        <button id="manufacture-btn" class="dash-btn">Manufacture</button>
+        <button id="warehouse-btn" class="dash-btn">Warehouse</button>
+        <button id="vendor-btn" class="dash-btn">Vendor</button>
+    </section>
+
+    <!-- Manufacture Section -->
+    <section id="manufacture" class="section-block" style="display:none;">
+        <h2>Manufacture - Enter Order Details</h2>
+        <form>
+            <label for="manufacture-login-id">Login ID:</label>
+            <input type="text" id="manufacture-login-id" name="login-id"><br><br>
+
+            <label for="order-id">Order ID:</label>
+            <input type="text" id="order-id" name="order-id"><br><br>
+
+            <label for="product-name">Product Name:</label>
+            <input type="text" id="product-name" name="product-name"><br><br>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity"><br><br>
+
+            <label for="order-date">Order Date:</label>
+            <input type="date" id="order-date" name="order-date"><br><br>
+
+            <label for="supplied-to-warehouse">Supplied to Warehouse:</label>
+            <input type="text" id="supplied-to-warehouse" name="supplied-to-warehouse"><br><br>
+
+            <input type="submit" value="Submit Order">
+        </form>
+    </section>
+
+    <!-- Warehouse Section -->
+    <section id="warehouse" class="section-block" style="display:none;">
+        <h2>Warehouse - Enter Delivery & Stock Received Details</h2>
+        <form>
+            <label for="warehouse-login-id">Login ID:</label>
+            <input type="text" id="warehouse-login-id" name="login-id"><br><br>
+
+            <h3>Delivery Details</h3>
+            <label for="delivery-id">Delivery ID:</label>
+            <input type="text" id="delivery-id" name="delivery-id"><br><br>
+
+            <label for="supplied-to-vendor">Supplied to Vendor:</label>
+            <input type="text" id="supplied-to-vendor" name="supplied-to-vendor"><br><br>
+
+            <input type="submit" value="Submit Delivery">
+        </form>
+
+        <form>
+            <h3>Stock Received Details</h3>
+            <label for="stock-id">Stock ID:</label>
+            <input type="text" id="stock-id" name="stock-id"><br><br>
+
+            <label for="stock-quantity">Stock Quantity:</label>
+            <input type="number" id="stock-quantity" name="stock-quantity"><br><br>
+
+            <label for="stock-date">Stock Date:</label>
+            <input type="date" id="stock-date" name="stock-date"><br><br>
+
+            <label for="received-from-manufacture">Received from Manufacture:</label>
+            <input type="text" id="received-from-manufacture" name="received-from-manufacture"><br><br>
+
+            <input type="submit" value="Submit Stock">
+        </form>
+    </section>
+
+    <!-- Vendor Section -->
+    <section id="vendor" class="section-block" style="display:none;">
+        <h2>Vendor - Enter Delivery & Stock Received Details</h2>
+        <form>
+            <label for="vendor-login-id">Login ID:</label>
+            <input type="text" id="vendor-login-id" name="login-id"><br><br>
+
+            <h3>Delivery Details</h3>
+            <label for="vendor-delivery-id">Delivery ID:</label>
+            <input type="text" id="vendor-delivery-id" name="vendor-delivery-id"><br><br>
+
+            <input type="submit" value="Submit Delivery">
+        </form>
+
+        <form>
+            <h3>Stock Received Details</h3>
+            <label for="vendor-stock-id">Stock ID:</label>
+            <input type="text" id="vendor-stock-id" name="vendor-stock-id"><br><br>
+
+            <label for="vendor-stock-quantity">Stock Quantity:</label>
+            <input type="number" id="vendor-stock-quantity" name="vendor-stock-quantity"><br><br>
+
+            <label for="vendor-stock-date">Stock Date:</label>
+            <input type="date" id="vendor-stock-date" name="vendor-stock-date"><br><br>
+
+            <label for="received-from-warehouse">Received from Warehouse:</label>
+            <input type="text" id="received-from-warehouse" name="received-from-warehouse"><br><br>
+
+            <input type="submit" value="Submit Stock">
+        </form>
+    </section>
+
+    <script src="scripttoentry.js"></script>
+</body>
+</html>
