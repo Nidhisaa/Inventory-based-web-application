@@ -1,69 +1,113 @@
+/* General Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0e0e0;
     margin: 0;
     padding: 20px;
-}
-
-h1 {
-    text-align: center;
     color: #333;
 }
 
-.section-block {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Main Header */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 40px;
 }
 
+/* Section Block Styling */
+.section-block {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Header Styling */
 h2 {
     color: #444;
-}
-
-form {
+    font-size: 2em;
     margin-bottom: 20px;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 10px;
 }
 
+/* Form Label Styling */
 label {
     display: block;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-input[type="text"], input[type="number"], input[type="date"] {
-    width: 100%;
-    padding: 8px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    color: #555;
+    font-weight: bold;
 }
 
+/* Input Fields Styling */
+input[type="text"], input[type="number"], input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Submit Button Styling */
 input[type="submit"] {
     background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
+    color: #fff;
+    padding: 12px 25px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 input[type="submit"]:hover {
     background-color: #218838;
+    transform: translateY(-2px);
 }
 
+/* Dashboard Button Styling */
 .dash-btn {
     background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
+    color: #fff;
+    padding: 15px 30px;
+    margin: 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .dash-btn:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Dashboard Section Styling */
+#dashboard {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    input[type="text"], input[type="number"], input[type="date"] {
+        width: calc(100% - 10px);
+    }
+
+    .dash-btn {
+        width: 100%;
+        margin: 10px 0;
+    }
 }

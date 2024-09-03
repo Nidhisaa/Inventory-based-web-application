@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Tracker Portal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #80deea);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portal-container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            background: linear-gradient(to bottom, #004d40, #00796b);
+            color: white;
+            width: 250px;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            height: 100vh;
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffeb3b;
+            font-size: 1.5em;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            margin: 5px 0;
+            background-color: #004d40;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #00796b;
+            transform: scale(1.05);
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+        .table-view {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table-view th, .table-view td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table-view th {
+            background-color: #00796b;
+            color: white;
+        }
+
+        .table-view td {
+            background-color: #e0f7fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="portal-container">
+        <aside class="sidebar">
+            <h2>Supply Chain Tracker</h2>
+            <ul>
+                <li onclick="showSection('manufacturer')">Manufacturers</li>
+                <li onclick="showSection('warehouse')">Warehouses</li>
+                <li onclick="showSection('vendors')">Vendors</li>
+            </ul>
+        </aside>
+        <main class="content">
+            <!-- Manufacturer Section -->
+            <div id="manufacturer" class="section active">
+                <h2>Manufacturers</h2>
+                <table class="table-view">
+                    <thead>
+                        <tr>
+                            <th>Manufacturer Name</th>
+                            <th>Produced Drugs</th>
+                            <th>Location</th>
+                            <th>Contact</th>
+                            <th>Supplies Sent To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XYZ Pharmaceuticals</td>
+                            <td>Drug A, Drug B, Drug C</td>
+                            <td>City A</td>
+                            <td>contact@xyzpharma.com</td>
+                            <td>Central Warehouse, North Warehouse</td>
+                        </tr>
+                        <tr>
+                            <td>ABC Meds</td>
+                            <td>Drug D, Drug E</td>
+                            <td>City B</td>
+                            <td>contact@abcmeds.com</td>
+                            <td>Central Warehouse, North Warehouse</td>
+                        </tr>
+                        <tr>
+                            <td>HealthPro Labs</td>
+                            <td>Drug F, Drug G, Drug H</td>
+                            <td>City C</td>
+                            <td>contact@healthpro.com</td>
+                            <td>North Warehouse, South Warehouse</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Warehouse Section -->
+            <div id="warehouse" class="section">
+                <h2>Warehouses</h2>
+                <table class="table-view">
+                    <thead>
+                        <tr>
+                            <th>Warehouse Name</th>
+                            <th>Stored Drugs</th>
+                            <th>Supplied By</th>
+                            <th>Supplies To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Central Warehouse</td>
+                            <td>Drug A (XYZ Pharmaceuticals), Drug B (XYZ Pharmaceuticals), Drug D (ABC Meds)</td>
+                            <td>XYZ Pharmaceuticals, ABC Meds</td>
+                            <td>Vendor 1, Vendor 2</td>
+                        </tr>
+                        <tr>
+                            <td>North Warehouse</td>
+                            <td>Drug C (XYZ Pharmaceuticals), Drug E (ABC Meds), Drug F (HealthPro Labs)</td>
+                            <td>XYZ Pharmaceuticals, ABC Meds, HealthPro Labs</td>
+                            <td>Vendor 3, Vendor 4</td>
+                        </tr>
+                        <tr>
+                            <td>South Warehouse</td>
+                            <td>Drug G (HealthPro Labs), Drug H (HealthPro Labs)</td>
+                            <td>HealthPro Labs</td>
+                            <td>Vendor 2, Vendor 3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Vendors Section -->
+            <div id="vendors" class="section">
+                <h2>Vendors</h2>
+                <table class="table-view">
+                    <thead>
+                        <tr>
+                            <th>Vendor Name</th>
+                            <th>Supplied Drugs</th>
+                            <th>Supplied By (Warehouse)</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vendor 1</td>
+                            <td>Drug A (Central Warehouse), Drug B (Central Warehouse)</td>
+                            <td>Central Warehouse</td>
+                            <td>Vendor 1 Depot, City X</td>
+                        </tr>
+                        <tr>
+                            <td>Vendor 2</td>
+                            <td>Drug G (South Warehouse)</td>
+                            <td>South Warehouse</td>
+                            <td>Vendor 2 Depot, City Y</td>
+                        </tr>
+                        <tr>
+                            <td>Vendor 3</td>
+                            <td>Drug C (North Warehouse), Drug F (North Warehouse)</td>
+                            <td>North Warehouse</td>
+                            <td>Vendor 3 Depot, City Z</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            var selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+        }
+    </script>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</html>
