@@ -27,10 +27,10 @@
             <label for="order-id">Order ID:</label>
             <input type="text" id="order-id" name="order-id"><br><br>
 
-            <label for="product-name">Product Name:</label>
+            <label for="product-name">Drug Name:</label>
             <input type="text" id="product-name" name="product-name"><br><br>
 
-            <label for="quantity">Quantity:</label>
+            <label for="quantity">Order Quantity:</label>
             <input type="number" id="quantity" name="quantity"><br><br>
 
             <label for="order-date">Order Date:</label>
@@ -45,25 +45,43 @@
 
     <!-- Warehouse Section -->
     <section id="warehouse" class="section-block" style="display:none;">
-        <h2>Warehouse - Enter Delivery & Stock Received Details</h2>
+        <h2>Warehouse - Enter Delivery, Stock Received & Return Details</h2>
+        
+        <!-- Delivery Details -->
         <form>
+            <h3>Delivery Details</h3>
             <label for="warehouse-login-id">Login ID:</label>
             <input type="text" id="warehouse-login-id" name="login-id"><br><br>
 
-            <h3>Delivery Details</h3>
             <label for="delivery-id">Delivery ID:</label>
             <input type="text" id="delivery-id" name="delivery-id"><br><br>
+
+            <label for="drug-name">Drug Name:</label>
+            <input type="text" id="drug-name" name="drug-name"><br><br>
 
             <label for="supplied-to-vendor">Supplied to Vendor:</label>
             <input type="text" id="supplied-to-vendor" name="supplied-to-vendor"><br><br>
 
+            <label for="delivery-date">Delivery Date:</label>
+            <input type="date" id="delivery-date" name="delivery-date"><br><br>
+
+            <label for="delivery-quantity">Delivery Quantity:</label>
+            <input type="number" id="delivery-quantity" name="delivery-quantity"><br><br>
+
             <input type="submit" value="Submit Delivery">
         </form>
 
+        <!-- Stock Received Details -->
         <form>
             <h3>Stock Received Details</h3>
+            <label for="warehouse-stock-login-id">Login ID:</label>
+            <input type="text" id="warehouse-stock-login-id" name="login-id"><br><br>
+
             <label for="stock-id">Stock ID:</label>
             <input type="text" id="stock-id" name="stock-id"><br><br>
+
+            <label for="stock-drug-name">Drug Name:</label>
+            <input type="text" id="stock-drug-name" name="drug-name"><br><br>
 
             <label for="stock-quantity">Stock Quantity:</label>
             <input type="number" id="stock-quantity" name="stock-quantity"><br><br>
@@ -76,26 +94,68 @@
 
             <input type="submit" value="Submit Stock">
         </form>
+
+        <!-- Return Details -->
+        <form>
+            <h3>Return Details</h3>
+            <label for="warehouse-return-login-id">Login ID:</label>
+            <input type="text" id="warehouse-return-login-id" name="login-id"><br><br>
+
+            <label for="warehouse-name">Manufacture Name:</label>
+            <input type="text" id="warehouse-name" name="warehouse-name"><br><br>
+
+            <label for="return-id">Return ID:</label>
+            <input type="text" id="return-id" name="return-id"><br><br>
+
+            <label for="return-drug-name">Drug Name:</label>
+            <input type="text" id="return-drug-name" name="drug-name"><br><br>
+
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return-date"><br><br>
+
+            <label for="return-reason">Reason:</label>
+            <textarea id="return-reason" name="return-reason"></textarea><br><br>
+
+            <input type="submit" value="Submit Return">
+        </form>
     </section>
 
     <!-- Vendor Section -->
     <section id="vendor" class="section-block" style="display:none;">
-        <h2>Vendor - Enter Delivery & Stock Received Details</h2>
+        <h2>Vendor - Enter Delivery, Stock Received & Return Details</h2>
+
+        <!-- Delivery Details -->
         <form>
+            <h3>Delivery Details</h3>
             <label for="vendor-login-id">Login ID:</label>
             <input type="text" id="vendor-login-id" name="login-id"><br><br>
 
-            <h3>Delivery Details</h3>
             <label for="vendor-delivery-id">Delivery ID:</label>
             <input type="text" id="vendor-delivery-id" name="vendor-delivery-id"><br><br>
+
+            <label for="vendor-drug-name">Drug Name:</label>
+            <input type="text" id="vendor-drug-name" name="drug-name"><br><br>
+
+            <label for="delivery-date">Delivery Date:</label>
+            <input type="date" id="delivery-date" name="delivery-date"><br><br>
+
+            <label for="delivery-quantity">Delivery Quantity:</label>
+            <input type="number" id="delivery-quantity" name="delivery-quantity"><br><br>
 
             <input type="submit" value="Submit Delivery">
         </form>
 
+        <!-- Stock Received Details -->
         <form>
             <h3>Stock Received Details</h3>
+            <label for="vendor-stock-login-id">Login ID:</label>
+            <input type="text" id="vendor-stock-login-id" name="login-id"><br><br>
+
             <label for="vendor-stock-id">Stock ID:</label>
             <input type="text" id="vendor-stock-id" name="vendor-stock-id"><br><br>
+
+            <label for="vendor-stock-drug-name">Drug Name:</label>
+            <input type="text" id="vendor-stock-drug-name" name="drug-name"><br><br>
 
             <label for="vendor-stock-quantity">Stock Quantity:</label>
             <input type="number" id="vendor-stock-quantity" name="vendor-stock-quantity"><br><br>
@@ -108,9 +168,32 @@
 
             <input type="submit" value="Submit Stock">
         </form>
+
+        <!-- Return Details -->
+        <form>
+            <h3>Return Details</h3>
+            <label for="vendor-return-login-id">Login ID:</label>
+            <input type="text" id="vendor-return-login-id" name="login-id"><br><br>
+
+            <label for="vendor-warehouse-name">Warehouse Name:</label>
+            <input type="text" id="vendor-warehouse-name" name="warehouse-name"><br><br>
+
+            <label for="vendor-return-id">Return ID:</label>
+            <input type="text" id="vendor-return-id" name="return-id"><br><br>
+
+            <label for="vendor-return-drug-name">Drug Name:</label>
+            <input type="text" id="vendor-return-drug-name" name="drug-name"><br><br>
+
+            <label for="vendor-return-date">Return Date:</label>
+            <input type="date" id="vendor-return-date" name="return-date"><br><br>
+
+            <label for="vendor-return-reason">Reason:</label>
+            <textarea id="vendor-return-reason" name="return-reason"></textarea><br><br>
+
+            <input type="submit" value="Submit Return">
+        </form>
     </section>
 
     <script src="scripttoentry.js"></script>
 </body>
 </html>
- 

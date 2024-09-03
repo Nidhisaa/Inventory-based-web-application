@@ -78,50 +78,25 @@
             margin-top: 0;
         }
 
-        .details {
-            display: none;
+        .table-view {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        .details.active {
-            display: block;
+        .table-view th, .table-view td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
         }
 
-        button {
-            background-color: #1b78ea;
+        .table-view th {
+            background-color: #00796b;
             color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s;
         }
 
-        button:hover {
-            background-color: #1932ef;
-        }
-
-        .manufacturer-info p, .warehouse-info p, .vendor-info p {
-            background-color: #c8e6c9;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .warehouse-info p {
-            background-color: #2aeb51;
-        }
-
-        .vendor-info p {
-            background-color: #ffeb3b;
-        }
- 
-        .drug-supplier-info {
-            background-color: #e8f5e9;
-            padding: 10px;
-            border-radius: 8px;
-            margin: 5px 0;
+        .table-view td {
+            background-color: #e0f7fa;
         }
     </style>
 </head>
@@ -139,119 +114,130 @@
             <!-- Manufacturer Section -->
             <div id="manufacturer" class="section active">
                 <h2>Manufacturers</h2>
-                <div class="manufacturer-info">
-                    <button onclick="toggleDetails('manufacturer1')">Manufacturer 1</button>
-                    <div id="manufacturer1" class="details">
-                        <p><strong>XYZ Pharmaceuticals</strong></p>
-                        <p>Produced Drugs: A, B, C</p>
-                        <p>Location: City A</p>
-                        <p>Contact: contact@xyzpharma.com</p>
-                        <p><strong>Supplies Sent To:</strong> Central Warehouse, North Warehouse</p>
-                    </div>
-                </div>
-                <div class="manufacturer-info">
-                    <button onclick="toggleDetails('manufacturer2')">Manufacturer 2</button>
-                    <div id="manufacturer2" class="details">
-                        <p><strong>ABC Meds</strong></p>
-                        <p>Produced Drugs: D, E</p>
-                        <p>Location: City B</p>
-                        <p>Contact: contact@abcmeds.com</p>
-                        <p><strong>Supplies Sent To:</strong> Central Warehouse, North Warehouse</p>
-                    </div>
-                </div>
-                <div class="manufacturer-info">
-                    <button onclick="toggleDetails('manufacturer3')">Manufacturer 3</button>
-                    <div id="manufacturer3" class="details">
-                        <p><strong>HealthPro Labs</strong></p>
-                        <p>Produced Drugs: F, G, H</p>
-                        <p>Location: City C</p>
-                        <p>Contact: contact@healthpro.com</p>
-                        <p><strong>Supplies Sent To:</strong> North Warehouse, South Warehouse</p>
-                    </div>
-                </div>
+                <table class="table-view">
+                    <thead>
+                        <tr>
+                            <th>Manufacturer Name</th>
+                            <th>Produced Drugs</th>
+                            <th>Location</th>
+                            <th>Contact</th>
+                            <th>Supplies Sent To</th>
+                            <th>Supplied Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XYZ Pharmaceuticals</td>
+                            <td>Drug A, Drug B, Drug C</td>
+                            <td>City A</td>
+                            <td>contact@xyzpharma.com</td>
+                            <td>Central Warehouse, North Warehouse</td>
+                            <td>2024-08-01</td>
+                        </tr>
+                        <tr>
+                            <td>ABC Meds</td>
+                            <td>Drug D, Drug E</td>
+                            <td>City B</td>
+                            <td>contact@abcmeds.com</td>
+                            <td>Central Warehouse, North Warehouse</td>
+                            <td>2024-08-05</td>
+                        </tr>
+                        <tr>
+                            <td>HealthPro Labs</td>
+                            <td>Drug F, Drug G, Drug H</td>
+                            <td>City C</td>
+                            <td>contact@healthpro.com</td>
+                            <td>North Warehouse, South Warehouse</td>
+                            <td>2024-08-08</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <!-- Warehouse Section -->
             <div id="warehouse" class="section">
                 <h2>Warehouses</h2>
-                <div class="warehouse-info">
-                    <button onclick="toggleDetails('warehouse1')">Warehouse 1</button>
-                    <div id="warehouse1" class="details">
-                        <p><strong>Central Warehouse</strong></p>
-                        <p>Stored Drugs:</p>
-                        <div class="drug-supplier-info">
-                            <p><strong>Drug A:</strong> Supplied by XYZ Pharmaceuticals</p>
-                            <p><strong>Drug B:</strong> Supplied by XYZ Pharmaceuticals</p>
-                            <p><strong>Drug D:</strong> Supplied by ABC Meds</p>
-                        </div>
-                        <p><strong>Supplies to:</strong> Vendor 1, Vendor 2</p>
-                    </div>
-                </div>
-                <div class="warehouse-info">
-                    <button onclick="toggleDetails('warehouse2')">Warehouse 2</button>
-                    <div id="warehouse2" class="details">
-                        <p><strong>North Warehouse</strong></p>
-                        <p>Stored Drugs:</p>
-                        <div class="drug-supplier-info">
-                            <p><strong>Drug C:</strong> Supplied by XYZ Pharmaceuticals</p>
-                            <p><strong>Drug E:</strong> Supplied by ABC Meds</p>
-                            <p><strong>Drug F:</strong> Supplied by HealthPro Labs</p>
-                        </div>
-                        <p><strong>Supplies to:</strong> Vendor 3, Vendor 4</p>
-                    </div>
-                </div>
-                <div class="warehouse-info">
-                    <button onclick="toggleDetails('warehouse3')">Warehouse 3</button>
-                    <div id="warehouse3" class="details">
-                        <p><strong>South Warehouse</strong></p>
-                        <p>Stored Drugs:</p>
-                        <div class="drug-supplier-info">
-                            <p><strong>Drug G:</strong> Supplied by HealthPro Labs</p>
-                            <p><strong>Drug H:</strong> Supplied by HealthPro Labs</p>
-                        </div>
-                        <p><strong>Supplies to:</strong> Vendor 2, Vendor 3</p>
-                    </div>
-                </div>
+                <table class="table-view">
+                    <thead>
+                        <tr>
+                            <th>Warehouse Name</th>
+                            <th>Stored Drugs</th>
+                            <th>Supplied By</th>
+                            <th>Supplies To</th>
+                            <th>Supplied Date</th>
+                            <th>Received Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Central Warehouse</td>
+                            <td>Drug A (XYZ Pharmaceuticals), Drug B (XYZ Pharmaceuticals), Drug D (ABC Meds)</td>
+                            <td>XYZ Pharmaceuticals, ABC Meds</td>
+                            <td>Vendor 1, Vendor 2</td>
+                            <td>2024-08-02</td>
+                            <td>2024-08-04</td>
+                        </tr>
+                        <tr>
+                            <td>North Warehouse</td>
+                            <td>Drug C (XYZ Pharmaceuticals), Drug E (ABC Meds), Drug F (HealthPro Labs)</td>
+                            <td>XYZ Pharmaceuticals, ABC Meds, HealthPro Labs</td>
+                            <td>Vendor 3, Vendor 4</td>
+                            <td>2024-08-06</td>
+                            <td>2024-08-08</td>
+                        </tr>
+                        <tr>
+                            <td>South Warehouse</td>
+                            <td>Drug G (HealthPro Labs), Drug H (HealthPro Labs)</td>
+                            <td>HealthPro Labs</td>
+                            <td>Vendor 2, Vendor 3</td>
+                            <td>2024-08-09</td>
+                            <td>2024-08-11</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <!-- Vendors Section -->
             <div id="vendors" class="section">
                 <h2>Vendors</h2>
-                <div class="vendor-info">
-                    <button onclick="toggleDetails('vendor1')">Vendor 1</button>
-                    <div id="vendor1" class="details">
-                        <p><strong>Vendor 1</strong></p>
-                        <p>Supplied Drugs:</p>
-                        <div class="drug-supplier-info">
-                            <p><strong>Drug A:</strong> Supplied by Central Warehouse</p>
-                            <p><strong>Drug B:</strong> Supplied by Central Warehouse</p>
-                        </div>
-                        <p><strong>Location:</strong> Vendor 1 Depot, City X</p>
-                    </div>
-                </div>
-                <div class="vendor-info">
-                    <button onclick="toggleDetails('vendor2')">Vendor 2</button>
-                    <div id="vendor2" class="details">
-                        <p><strong>Vendor 2</strong></p>
-                        <p>Supplied Drugs:</p>
-                        <div class="drug-supplier-info">
-                            <p><strong>Drug G:</strong> Supplied by South Warehouse</p>
-                        </div>
-                        <p><strong>Location:</strong> Vendor 2 Depot, City Y</p>
-                    </div>
-                </div>
-                <div class="vendor-info">
-                    <button onclick="toggleDetails('vendor3')">Vendor 3</button>
-                    <div id="vendor3" class="details">
-                        <p><strong>Vendor 3</strong></p>
-                        <p>Supplied Drugs:</p>
-                        <div class="drug-supplier-info">
-                            <p><strong>Drug C:</strong> Supplied by North Warehouse</p>
-                            <p><strong>Drug F:</strong> Supplied by North Warehouse</p>
-                        </div>
-                        <p><strong>Location:</strong> Vendor 3 Depot, City Z</p>
-                    </div>
-                </div>
+                <table class="table-view">
+                    <thead>
+                        <tr>
+                            <th>Vendor Name</th>
+                            <th>Supplied Drugs</th>
+                            <th>Supplied By (Warehouse)</th>
+                            <th>Location</th>
+                            <th>Supplied Date</th>
+                            <th>Received Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vendor 1</td>
+                            <td>Drug A (Central Warehouse), Drug B (Central Warehouse)</td>
+                            <td>Central Warehouse</td>
+                            <td>Vendor 1 Depot, City X</td>
+                            <td>2024-08-04</td>
+                            <td>2024-08-05</td>
+                        </tr>
+                        <tr>
+                            <td>Vendor 2</td>
+                            <td>Drug G (South Warehouse)</td>
+                            <td>South Warehouse</td>
+                            <td>Vendor 2 Depot, City Y</td>
+                            <td>2024-08-11</td>
+                            <td>2024-08-12</td>
+                        </tr>
+                        <tr>
+                            <td>Vendor 3</td>
+                            <td>Drug C (North Warehouse), Drug F (North Warehouse)</td>
+                            <td>North Warehouse</td>
+                            <td>Vendor 3 Depot, City Z</td>
+                            <td>2024-08-08</td>
+                            <td>2024-08-09</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
@@ -268,14 +254,6 @@
             var selectedSection = document.getElementById(sectionId);
             if (selectedSection) {
                 selectedSection.classList.add('active');
-            }
-        }
-
-        function toggleDetails(detailsId) {
-            // Toggle the visibility of the details section
-            var details = document.getElementById(detailsId);
-            if (details) {
-                details.classList.toggle('active');
             }
         }
     </script>
