@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 90px;
+            padding: 250px;
             text-align: center;
             background-image: url('drug.jpg'); 
             background-size: cover; 
@@ -23,27 +23,38 @@
             border-radius: 8px;
             margin-top: 20px;
         }
-        .button-container {
+        .search-container {
             margin-top: 50px;
-            display: flex;
-            flex-direction: column; 
-            align-items: center;
-            gap: 20px; 
         }
-        .warehouse-button {
+        .search-box {
+            padding: 10px;
+            font-size: 18px;
+            width: 300px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        .search-button {
             background-color: #3498db;
             color: white;
-            padding: 15px 30px;
-            width: 200px; 
+            padding: 10px 20px;
             font-size: 18px;
             border: none;
             border-radius: 8px;
-            text-decoration: none;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .warehouse-button:hover {
-            background-color: #2980b9; 
+        .search-button:hover {
+            background-color: #2980b9;
+        }
+        .warehouse-details {
+            margin-top: 30px;
+            color: #2c3e50;
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
         }
     </style>
 </head>
@@ -51,12 +62,36 @@
 
     <h1>Warehouse Management System</h1>
 
-    <div class="button-container">
-        <a href="stock.html" class="warehouse-button">Warehouse 1</a>
-        <a href="stock.html" class="warehouse-button">Warehouse 2</a>
-        <a href="stock.html" class="warehouse-button">Warehouse 3</a>
-        <a href="stock.html" class="warehouse-button">Warehouse 4</a>
+    <div class="search-container">
+        <input type="text" id="warehouseId" class="search-box" placeholder="Enter Warehouse ID">
+        <button id="searchBtn" class="search-button">Search</button>
     </div>
+
+    <div id="warehouseDetails" class="warehouse-details">
+        <!-- Warehouse details will be shown here -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#searchBtn').click(function() {
+                const warehouseId = $('#warehouseId').val();
+                
+                // Check if the warehouse ID matches one of the expected values
+                if (warehouseId == 1) {
+                    window.location.href = 'stock.html'; // Redirect to warehouse1.html
+                } else if (warehouseId == 2) {
+                    window.location.href = 'stock.html'; // Redirect to warehouse2.html
+                } else if (warehouseId == 3) {
+                    window.location.href = 'stock.html'; // Redirect to warehouse3.html
+                } else if (warehouseId == 4) {
+                    window.location.href = 'stock.html'; // Redirect to warehouse4.html
+                } else {
+                    $('#warehouseDetails').html('<p>Warehouse not found. Please enter a valid Warehouse ID.</p>').fadeIn();
+                }
+            });
+        });
+    </script>
+
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>

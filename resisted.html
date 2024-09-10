@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Sale Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Drug Sale Management</h1>
+        <form id="sale-form">
+            <div class="form-group">
+                <label for="drug-name">Drug Name:</label>
+                <input type="text" id="drug-name" name="drug-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+            </div>
+
+            <div class="form-group">
+                <label for="requires-prescription">Requires Prescription:</label>
+                <input type="checkbox" id="requires-prescription" name="requires-prescription" disabled>
+            </div>
+
+            <div id="prescription-section" class="prescription-section">
+                <div class="form-group">
+                    <label for="prescription-id">Prescription ID:</label>
+                    <input type="text" id="prescription-id" name="prescription-id">
+                </div>
+
+                <div class="form-group">
+                    <label for="doctor-name">Doctor's Name:</label>
+                    <input type="text" id="doctor-name" name="doctor-name">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Sale</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

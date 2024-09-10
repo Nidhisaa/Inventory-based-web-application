@@ -6,44 +6,77 @@
     <title>Drug Delivery Tracking - Distributor Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff; /* Light sky blue background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); /* Subtle gradient */
+            background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Gradient background */
         }
         .container {
             max-width: 1200px;
             margin: auto;
             background: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
-            color: #2c3e50; /* Dark blue-grey color */
+            color: #2c3e50;
+            font-size: 2.5em;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-box {
+            padding: 12px;
+            font-size: 18px;
+            width: 350px;
+            border-radius: 25px;
+            border: 2px solid #3498db;
+            outline: none;
+            transition: 0.3s ease;
+        }
+        .search-box:focus {
+            border-color: #2980b9;
+        }
+        .search-button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: 0.3s ease;
+        }
+        .search-button:hover {
+            background-color: #2980b9;
         }
         .section {
+            display: none;
             margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .section h2 {
-            color: #34495e; /* Slightly darker blue-grey */
-            border-bottom: 2px solid #ccc;
+            color: #34495e;
             padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
         }
         .warehouse {
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
-            border-left: 5px solid;
+            border-left: 8px solid;
+            background-color: #f7f9fc;
         }
         .warehouse p {
             margin: 5px 0;
-            color: #2c3e50;
+            color: #34495e;
         }
         .checkbox-container {
             display: flex;
@@ -62,31 +95,23 @@
         .timestamp {
             margin-left: 20px;
             font-size: 14px;
-            color: #7f8c8d; /* Grey color */
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
+            color: #7f8c8d;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Distributor Dashboard - Warehouse Deliveries</h1>
+    <h1>Warehouse Deliveries</h1>
+
+    <!-- Search Box -->
+    <div class="search-container">
+        <input type="text" id="orderId" class="search-box" placeholder="Enter Order ID">
+        <button id="searchBtn" class="search-button">Search</button>
+    </div>
 
     <!-- Warehouse 1 -->
-    <div class="section">
+    <div id="W1-ORD001" class="section">
         <h2 style="color: #1e90ff;">Warehouse 1</h2>
         <div class="warehouse" style="border-left-color: #1e90ff;">
             <p><strong>Warehouse Name:</strong> Central Warehouse</p>
@@ -104,7 +129,7 @@
     </div>
 
     <!-- Warehouse 2 -->
-    <div class="section">
+    <div id="W2-ORD002" class="section">
         <h2 style="color: #ff9800;">Warehouse 2</h2>
         <div class="warehouse" style="border-left-color: #ff9800;">
             <p><strong>Warehouse Name:</strong> North Warehouse</p>
@@ -122,7 +147,7 @@
     </div>
 
     <!-- Warehouse 3 -->
-    <div class="section">
+    <div id="W3-ORD003" class="section">
         <h2 style="color: #4caf50;">Warehouse 3</h2>
         <div class="warehouse" style="border-left-color: #4caf50;">
             <p><strong>Warehouse Name:</strong> South Warehouse</p>
@@ -140,7 +165,7 @@
     </div>
 
     <!-- Warehouse 4 -->
-    <div class="section">
+    <div id="W4-ORD004" class="section">
         <h2 style="color: #e91e63;">Warehouse 4</h2>
         <div class="warehouse" style="border-left-color: #e91e63;">
             <p><strong>Warehouse Name:</strong> East Warehouse</p>
@@ -159,50 +184,30 @@
 
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // Function to handle checkbox logic and update timestamps
-    function updateStatus(status, orderId) {
-        console.log(`Order ID: ${orderId}, Status: ${status}`);
-        
-        // Get current date and time
-        const now = new Date();
-        const timestamp = now.toLocaleString('en-GB', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
+    $(document).ready(function() {
+        $('#searchBtn').click(function() {
+            const orderId = $('#orderId').val().toUpperCase(); // Convert input to uppercase
+            
+            // Hide all sections initially
+            $('.section').hide();
+            
+            // Show the corresponding section if the Order ID matches
+            if (orderId === 'W1-ORD001') {
+                $('#W1-ORD001').fadeIn();
+            } else if (orderId === 'W2-ORD002') {
+                $('#W2-ORD002').fadeIn();
+            } else if (orderId === 'W3-ORD003') {
+                $('#W3-ORD003').fadeIn();
+            } else if (orderId === 'W4-ORD004') {
+                $('#W4-ORD004').fadeIn();
+            } else {
+                alert('Order ID not found!');
+            }
         });
-        
-        // Update the timestamp for the respective status
-        if (status === 'packed') {
-            document.getElementById(`packedTime${orderId}`).textContent = timestamp;
-        } else if (status === 'outForDelivery') {
-            document.getElementById(`outForDeliveryTime${orderId}`).textContent = timestamp;
-            document.getElementById(`packed${orderId}`).checked = true;
-            document.getElementById(`packedTime${orderId}`).textContent ||= timestamp;
-        } else if (status === 'delivered') {
-            document.getElementById(`deliveredTime${orderId}`).textContent = timestamp;
-            document.getElementById(`packed${orderId}`).checked = true;
-            document.getElementById(`outForDelivery${orderId}`).checked = true;
-            document.getElementById(`packedTime${orderId}`).textContent ||= timestamp;
-            document.getElementById(`outForDeliveryTime${orderId}`).textContent ||= timestamp;
-        }
-
-        // Simulate sending status and timestamp to the server
-        // fetch(`/updateOrderStatus`, {
-        //     method: 'POST',
-        //     body: JSON.stringify({ orderId: orderId, status: status, timestamp: timestamp }),
-        //     headers: { 'Content-Type': 'application/json' }
-        // }).then(response => {
-        //     return response.json();
-        // }).then(data => {
-        //     console.log(data);
-        // });
-    }
+    });
 </script>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>

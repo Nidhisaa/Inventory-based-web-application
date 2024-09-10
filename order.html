@@ -6,63 +6,76 @@
     <title>Order Report - Distributor Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff; /* Light sky blue background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a2c2e2, #f5f5f5); /* Gradient background */
             margin: 0;
             padding: 20px;
-            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); /* Subtle gradient */
         }
         .container {
             max-width: 1200px;
             margin: auto;
             background: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
-            color: #2c3e50; /* Dark blue-grey color */
+            color: #2c3e50;
+            font-size: 2.5em;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-box {
+            padding: 12px;
+            font-size: 18px;
+            width: 350px;
+            border-radius: 25px;
+            border: 2px solid #3498db;
+            outline: none;
+            transition: 0.3s ease;
+        }
+        .search-box:focus {
+            border-color: #2980b9;
+        }
+        .search-button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: 0.3s ease;
+        }
+        .search-button:hover {
+            background-color: #2980b9;
         }
         .section {
+            display: none; /* Hide all sections by default */
             margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .section h2 {
-            color: #34495e; /* Slightly darker blue-grey */
-            border-bottom: 2px solid #ccc;
+            color: #34495e;
             padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
         }
         .order {
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             margin-bottom: 15px;
-            border-left: 5px solid;
+            border-left: 8px solid;
+            background-color: #f7f9fc;
         }
         .order p {
             margin: 5px 0;
-            color: #2c3e50;
-        }
-        .timestamp {
-            margin-left: 20px;
-            font-size: 14px;
-            color: #7f8c8d; /* Grey color */
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
+            color: #34495e;
         }
     </style>
 </head>
@@ -71,8 +84,14 @@
 <div class="container">
     <h1>Distributor Dashboard - Order Report</h1>
 
+    <!-- Search Box -->
+    <div class="search-container">
+        <input type="text" id="orderId" class="search-box" placeholder="Enter Order ID">
+        <button id="searchBtn" class="search-button">Search</button>
+    </div>
+
     <!-- Warehouse 1 -->
-    <div class="section">
+    <div id="O1-ORD001" class="section">
         <h2 style="color: #1e90ff;">Warehouse 1</h2>
         <div class="order" style="border-left-color: #1e90ff;">
             <p><strong>Warehouse Name:</strong> Central Warehouse</p>
@@ -85,7 +104,7 @@
     </div>
 
     <!-- Warehouse 2 -->
-    <div class="section">
+    <div id="O2-ORD002" class="section">
         <h2 style="color: #ff9800;">Warehouse 2</h2>
         <div class="order" style="border-left-color: #ff9800;">
             <p><strong>Warehouse Name:</strong> North Warehouse</p>
@@ -98,7 +117,7 @@
     </div>
 
     <!-- Warehouse 3 -->
-    <div class="section">
+    <div id="O3-ORD003" class="section">
         <h2 style="color: #4caf50;">Warehouse 3</h2>
         <div class="order" style="border-left-color: #4caf50;">
             <p><strong>Warehouse Name:</strong> South Warehouse</p>
@@ -111,7 +130,7 @@
     </div>
 
     <!-- Warehouse 4 -->
-    <div class="section">
+    <div id="O4-ORD004" class="section">
         <h2 style="color: #e91e63;">Warehouse 4</h2>
         <div class="order" style="border-left-color: #e91e63;">
             <p><strong>Warehouse Name:</strong> East Warehouse</p>
@@ -125,6 +144,25 @@
 
 </div>
 
-</body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#searchBtn').click(function() {
+            const orderId = $('#orderId').val().toUpperCase(); // Convert input to uppercase
+            
+            // Hide all sections initially
+            $('.section').hide();
+            
+            // Show the corresponding section if the Order ID matches
+            const sectionToShow = $(`#${orderId}`);
+            if (sectionToShow.length) {
+                sectionToShow.fadeIn();
+            } else {
+                alert('Order ID not found!');
+            }
+        });
+    });
+</script>
+
+</body>
 </html>

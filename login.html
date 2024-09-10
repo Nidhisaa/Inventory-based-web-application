@@ -57,6 +57,12 @@
             box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
         }
 
+        .form-group small {
+            display: block;
+            color: #666;
+            margin-top: 5px;
+        }
+
         button {
             width: 100%;
             padding: 12px;
@@ -92,8 +98,7 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="http://localhost:3000/login" method="POST"> <!-- Update the action URL to point to your Node.js server -->
-
+        <form id="loginForm" action="http://localhost:3000/login" method="POST" onsubmit="return validateLoginForm()">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -102,9 +107,35 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            <div class="form-group">
+                <label for="vendorLicense">Vendor License:</label>
+                <input type="text" id="vendorLicense" name="vendorLicense">
+                <small>Note: Vendor License is not required for admin users.</small>
+            </div>
             <button type="submit">Login</button>
         </form>
         <p>Forgot your password? <a href="#">Click here</a></p>
     </div>
+
+    <script>
+        function validateLoginForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const vendorLicense = document.getElementById("vendorLicense").value;
+
+            // Check if user is admin, assuming admin's username is 'admin'
+            if (username.toLowerCase() !== 'admin' && vendorLicense === "") {
+                alert("Please fill in the Vendor License.");
+                return false;
+            }
+
+            if (!username || !password) {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 </html>
